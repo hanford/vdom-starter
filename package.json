@@ -1,0 +1,27 @@
+{
+  "name": "vdom-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo init.js -- -r ./init.js:app",
+    "build": "browserify init.js | uglifyjs | htmlify > index.html"
+  },
+  "author": "Jack Hanford <jackhanford@gmail.com> (http://jackhanford.com)",
+  "license": "ISC",
+  "dependencies": {
+    "dom-delegator": "~13.1.0",
+    "dover": "~1.1.0",
+    "main-loop": "~3.2.0",
+    "observ": "~0.2.0",
+    "observ-struct": "~6.0.0",
+    "value-event": "~5.1.0",
+    "virtual-dom": "~2.1.1"
+  },
+  "devDependencies": {
+    "budo": "~7.0.2",
+    "inline-htmlify": "~1.0.2",
+    "standard": "^5.4.1",
+    "uglifyjs": "^2.4.10"
+  }
+}
