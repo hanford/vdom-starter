@@ -27,13 +27,7 @@ function countDown (state) {
 }
 
 Counter.render = function render (state) {
-  return h('div', {
-    style: {
-      textAlign: 'center',
-      padding: '10px',
-      fontFamily: 'Open Sans, sans-serif'
-    }
-  }, [
+  return h('div', {}, [
     h('span', {
       style: {
         margin: '10px'
