@@ -2,28 +2,17 @@
 
 var State = require('dover')
 var h = require('virtual-dom/h')
-var Observ = require('observ')
+
+var Counter = require('./src/components/counter')
 
 module.exports = App
 
 function App () {
   var state = State({
-    totalCount: Observ(0),
-    channels: {
-      countUp: countUp,
-      countDown: countDown
-    }
+    counter: Counter()
   })
 
   return state
-}
-
-function countUp (state) {
-  state.totalCount.set(state.totalCount() + 1)
-}
-
-function countDown (state) {
-  state.totalCount.set(state.totalCount() - 1)
 }
 
 App.render = function render (state) {
@@ -31,21 +20,9 @@ App.render = function render (state) {
     style: {
       textAlign: 'center',
       padding: '10px',
-      fontFamily: 'Open Sans, sans-serif'
+      fontFamily: 'sans-serif'
     }
   }, [
-    h('span', {
-      style: {
-        margin: '10px'
-      }
-    }, [state.totalCount]),
-
-    h('button', {
-      'ev-click': state.channels.countUp
-    }, '+'),
-
-    h('button', {
-      'ev-click': state.channels.countDown
-    }, '-')
+    Counter.render(state.counter)
   ])
 }
